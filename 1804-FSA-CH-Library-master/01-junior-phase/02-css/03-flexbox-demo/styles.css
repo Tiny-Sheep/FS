@@ -1,0 +1,40 @@
+body {
+  /* background-color: #fc0; */
+}
+
+div#container {
+  background-color: #def;
+  display: flex;
+  flex-wrap:wrap;
+}
+
+div.box {
+  background-color: #fc0;
+  margin: 10px;
+  flex: 1 0 calc(33% - 20px);
+  height: 200px;
+  display: flex;
+  align-items: flex-end;
+
+}
+
+.box .description {
+  flex: 1 1 auto;
+  background-color: white;
+}
+
+.box .link {
+  flex: 0 0 50px;
+}
+
+
+
+div.box.wide {
+  flex: 1 0 calc(66% - 20px);
+}
+
+@media (max-width: 500px) {
+  div#container {
+    display: block;
+  }
+}

@@ -68,7 +68,7 @@ describe('Todo routes', () => {
         });
     });
 
-    xit('POST creates a new task for that user & responds with the created task', () => {
+    it('POST creates a new task for that user & responds with the created task', () => {
       return supertest
         .post('/users/sarah/tasks')
         .send({ content: 'a new task for sarah'}) // the HTTP request body
@@ -87,7 +87,7 @@ describe('Todo routes', () => {
         });
     });
 
-    xit('POST respects pre-existing completion status', () => {
+    it('POST respects pre-existing completion status', () => {
       return supertest
         .post('/users/sarah/tasks')
         .send({ content: 'a new task for sarah', complete: true}) // the HTTP request body
@@ -139,7 +139,7 @@ describe('Todo routes', () => {
 
     describe('`/:index` URI', () => {
 
-      xit('PUT marks a specific task as complete', () => {
+      it('PUT marks a specific task as complete', () => {
         todos.add('nimit', { content: 't0' });
         todos.add('nimit', { content: 't1' });
         todos.add('nimit', { content: 't2' });
@@ -154,7 +154,7 @@ describe('Todo routes', () => {
           });
       });
 
-      xit('DELETE removes a specific task', () => {
+      it('DELETE removes a specific task', () => {
         todos.add('david', { content: 'interview fellows' });
         todos.add('david', { content: 'judge stackathon' });
         todos.add('david', { content: 'code review' });
@@ -172,13 +172,13 @@ describe('Todo routes', () => {
 
     describe('error handling', () => {
 
-      xit('responds with a 404 if a user does not exist', () => {
+      it('responds with a 404 if a user does not exist', () => {
         return supertest
           .get('/users/obama/tasks')
           .expect(404);
       });
 
-      xit('responds with a 400 if you attempt to add a todo without content', () => {
+      it('responds with a 400 if you attempt to add a todo without content', () => {
         return supertest
           .post('/users/bob/tasks')
           .send({ content: '' })

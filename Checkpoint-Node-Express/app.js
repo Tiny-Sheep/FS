@@ -5,6 +5,9 @@ const bodyParser = require('body-parser');
 const app = express();
 const routeToMid = require("./routes/index");
 
+// app.use("/",bodyParser.json)
+
+app.use(bodyParser.json())
 app.use("/",routeToMid)
 app.get("/",(req,res)=>{
     
